@@ -1,5 +1,5 @@
 class Player{
-  final float COLLIDERSIZE = 15; //an adjustable variable to change the sensitivity for collisions
+  final float COLLIDERSIZE = 30; //an adjustable variable to change the sensitivity for collisions
   float x; //the x coordinate of the player
   float y; //the y coordinate of the player
 
