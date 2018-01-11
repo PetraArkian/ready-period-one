@@ -7,7 +7,7 @@ Cycle currentCycle;
 void setup(){
   background(255); //set background
   size(1000, 700); //set canvas size
-  currentCycle = new Cycle();
+  currentCycle = new EndCycle();
   numThings = currentCycle.numThings;
   //initialize variables
   player = new Player(mouseX, mouseY); //creates a player at the bottom of the screen with
