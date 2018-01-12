@@ -7,8 +7,8 @@ class BirthControlPill extends FallingObject{
 
   void render(){
     if(super.notCaught){
-      fill(50, 50, 255);
-      ellipse(super.x, super.y, 50, 20);
+      fill(255, 204, 0);
+      ellipse(super.x, super.y, 30, 50);
     }
   }
 

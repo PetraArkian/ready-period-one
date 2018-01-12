@@ -5,6 +5,7 @@ class FallingObject{
   float speed; //the speed at which the object falls down the page
   int pointValue;
   boolean dropped;
+  String type;
 
   //constructor, initializes the object at the top of the screen with a starting speed
   FallingObject(){
