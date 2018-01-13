@@ -7,7 +7,6 @@ Cycle currentCycle;
 /*@pjs preload="Background.png";*/
 
 void setup(){
-  alert("hey");
   img = loadImage("Background.png");
   drawBackground();
   size(1000, 700); //set canvas size
@@ -69,7 +68,6 @@ void updateFallingObjects(){
   }
   for(Cycle cyc : player.unlocked){
     if(cyc != null){
-      alert("getting powerups");
       for(FallingObject o : cyc.powerUps()){
         fallingObjects[i] = o;
         i++;

@@ -41,7 +41,6 @@ class Player{
   void unlockNewCycle(Cycle cyc){
     unlocked[unlockedCount] = cyc;
     unlockedCount++;
-    alert(unlockedCount);
   }
 
   //draws the player on the screen (currently just a red dot)

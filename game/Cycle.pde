@@ -48,7 +48,6 @@ class Cycle{
   }
 
   FallingObject[] powerUps(){
-    alert("cottonball powerups");
     FallingObject[] powerUps = new FallingObject[3];
     for(int i=0; i<3; i++){
       powerUps[i] = new CottonBall();
