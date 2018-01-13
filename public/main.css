@@ -1,13 +1,15 @@
 body {
-  background-color: cornsilk;
+  background-color: LightSteelBlue;
   font-family: 'Berkshire Swash', cursive;
 }
 
 .container {
   width: 70%;
-  margin: 10% auto;
+  margin: auto;
   color:dimgray
 }
+
+
 
 .container h1 {
   text-align: center;
