@@ -22,6 +22,7 @@ class Cycle3 extends Cycle{
   }
 
   FallingObject[] powerUps(){
+    alert("tampon powerup");
     FallingObject[] powerUps = new FallingObject[3];
     for(int i=0; i<3; i++){
       powerUps[i] = new Tampon();

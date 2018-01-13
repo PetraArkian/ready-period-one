@@ -6,18 +6,20 @@ class Player{
   Cycle[] unlocked;
   Cycle currentCycle;
   boolean centralized = false;   //state of being centralized (i.e. site map); initialize to false
+  int unlockedCount;
 
   //constructor, takes in the initial x and y values
   Player(float x, float y){
     this.x = x;
     this.y = y;
-    unlocked = new Cycle[3];
+    unlocked = new Cycle[5];
+    unlockedCount = 0;
     unlocked[0] = new Cycle();
-    unlocked[1] = new Cycle1();
-    unlocked[2] = new Cycle2();
-    unlocked[3] = new Cycle3();
+    unlockedCount++;
+    //unlocked[2] = new Cycle2();
+    //unlocked[3] = new Cycle3();
     //currentCycle = new Cycle1();
-    currentCycle = new Cycle1();
+    currentCycle = new Cycle();
     cute = loadImage("Cuterus.png");
   }
 
@@ -36,11 +38,15 @@ class Player{
     return false;
   }
 
+  void unlockNewCycle(Cycle cyc){
+    unlocked[unlockedCount] = cyc;
+    unlockedCount++;
+    alert(unlockedCount);
+  }
+
   //draws the player on the screen (currently just a red dot)
   void render(){
-    //fill(200, 50, 50);
-    //ellipse(x, y, 50, 50);
-    image(cute, x - 50, y - 30, 80, 60);
+    image(cute, x - 50, y - 30, 80, 60); //image of the cuterus
   }
 
   //method to render the "centralized" screen (i.e. the site map)
