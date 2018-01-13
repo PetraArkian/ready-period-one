@@ -1,4 +1,4 @@
-/*@pjs preload="condom.jpg";*/
+/*@pjs preload="condom.png";*/
 class Condom extends FallingObject{
   PImage img;
 
@@ -6,7 +6,7 @@ class Condom extends FallingObject{
     super();
     super.speed = random(4,5);
     super.type = "Condom";
-    img = loadImage("condom.jpg");
+    img = loadImage("condom.png");
   }
 
   void render(){

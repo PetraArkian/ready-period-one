@@ -1,6 +1,6 @@
-class Cycle4 extends Cycle{
+class Cycle5 extends Cycle{
 
-  Cycle4(){
+  Cycle5(){
     super();
     super.cycleName = "Reusable Pads";
   }
