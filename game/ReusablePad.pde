@@ -1,12 +1,12 @@
-/*@pjs preload="condom.jpg";*/
-class Condom extends FallingObject{
+/*@pjs preload="reusable-pad.png";*/
+class ReusablePad extends FallingObject{
   PImage img;
 
-  Condom(){
+  ReusablePad(){
     super();
     super.speed = random(4,5);
-    super.type = "Condom";
-    img = loadImage("condom.jpg");
+    super.type = "ReusablePad";
+    img = loadImage("reusable-pad.png");
   }
 
   void render(){
