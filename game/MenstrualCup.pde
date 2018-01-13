@@ -1,19 +1,18 @@
-class CottonBall extends FallingObject{
+class MenstrualCup extends FallingObject{
 
   PImage img;
 
-  CottonBall(){
+  MenstrualCup(){
     super();
     super.speed = random(4,5);
-    super.type = "CottonBall";
-    img = loadImage("cottonball.png");
+    super.type = "MenstrualCup";
+    img = loadImage("menstrual_cup.png");
   }
 
   void render(){
     if(super.notCaught){
       fill(255);
       image(img, super.x, super.y, 50, 50);
-      //ellipse(x, y, 30, 30);
     }
   }
 

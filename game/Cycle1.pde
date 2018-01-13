@@ -2,7 +2,7 @@ class Cycle1 extends Cycle{
 
   Cycle1(){
     super();
-    super.cycleName = "birth control";
+    super.cycleName = "Birth Control";
   }
 
   FallingObject[] cycleObjects(){ //a method that returns an array with all of the proper number and types of FallingObjects for this cycle

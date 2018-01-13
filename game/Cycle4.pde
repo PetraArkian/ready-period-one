@@ -1,14 +1,14 @@
-class Cycle2 extends Cycle{
+class Cycle4 extends Cycle{
 
-  Cycle2(){
+  Cycle4(){
     super();
-    super.cycleName = "Condoms";
+    super.cycleName = "Menstrual Cups";
   }
 
   FallingObject[] cycleObjects(){ //a method that returns an array with all of the proper number and types of FallingObjects for this cycle
     FallingObject[] cycleObjs = new FallingObject[numThings];
     for(int i=0; i<numThings; i++){
-      cycleObjs[i] = new FallingObject();
+      cycleObjs[i] = new MenstrualCup();
     }
     return cycleObjs;
   }
