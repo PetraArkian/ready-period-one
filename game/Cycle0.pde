@@ -17,13 +17,13 @@ class Cycle0 extends Cycle{
     background(102, 205, 170);
     drawChallenge();
     textSize(20);
-    drawBubble(width/2.1, height/2, width/3.1, "Challenge", 48);
+    /*drawBubble(width/2.1, height/2, width/3.1, "Challenge", 48);
     drawBubble(width/2.1, height/8, width/9, "Cotton Balls", 20);
     drawBubble(width/2.1, height - height/8, width/9, "Condoms", 20);
     drawBubble(width - width/5, height/4, width/5, "Tampons", 15);
     drawBubble(width/5.3, height - height/4, width/5, "Pads", 14);
     drawBubble(width - width/4.7, height - height/4, width/5, "Birth Control", 15);
-    drawBubble(width/5.8, height/3.9, width/5, "Menstrual Cups", 15);
+    drawBubble(width/5.8, height/3.9, width/5, "Menstrual Cups", 15);*/
 
   }
 
@@ -41,17 +41,28 @@ class Cycle0 extends Cycle{
   }
 
   void getNext(){
-    if(dist(width/4, height/1.5, mouseX, mouseY)<width/12){
-      return null;
+    if(dist(width/2.1, height/2, mouseX, mouseY)<width/6.2){
+      return null; //challenge
     }
-    if(dist(width/3, height/3, mouseX, mouseY)<width/16){
-      return new Cycle();
+    if(dist(width/2.1, height/8, mouseX, mouseY)<width/18){
+      return new Cycle(); //cottonballs
     }
-    if(dist(width/2, height/4, mouseX, mouseY)<width/20){
-      return new Cycle1();
+    if(dist(width/2.1, height - height/8, mouseX, mouseY)<width/18){
+      return new Cycle2();//condoms
     }
-    if(dist(width/1.5, height/3, mouseX, mouseY)<width/24){
-      return new Cycle2();
+    if(dist(width - width/5, height/4, mouseX, mouseY)<width/10){
+      return new Cycle3();//tampons
+    }
+    //!!!!!!!!!!!!!!!!!!!!!!!!
+    if(dist(width/5.3, height - height/4, mouseX, mouseY)<width/10){
+      return new Cycle0();//pads //pads cycle currently not opperational
+    }
+    //!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if(dist(width - width/4.7, height - height/4, mouseX, mouseY)<width/10){
+      return new Cycle1();//birth control
+    }
+    if(dist(width/5.8, height/3.9, mouseX, mouseY)<width/10){
+      return new Cycle4();//menstrual cups
     }
     else{
       return new Cycle0();

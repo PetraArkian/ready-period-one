@@ -1,3 +1,4 @@
+/*@pjs preLoad="Cuterus.png"*/
 class Player{
   final float COLLIDERSIZE = 30; //an adjustable variable to change the sensitivity for collisions
   float x; //the x coordinate of the player
@@ -17,6 +18,7 @@ class Player{
     unlocked[3] = new Cycle3();
     //currentCycle = new Cycle1();
     currentCycle = new Cycle1();
+    cute = loadImage("Cuterus.png");
   }
 
   //sets the x and y coordinates to new values
@@ -36,8 +38,9 @@ class Player{
 
   //draws the player on the screen (currently just a red dot)
   void render(){
-    fill(200, 50, 50);
-    ellipse(x, y, 50, 50);
+    //fill(200, 50, 50);
+    //ellipse(x, y, 50, 50);
+    image(cute, x - 50, y - 30, 80, 60);
   }
 
   //method to render the "centralized" screen (i.e. the site map)

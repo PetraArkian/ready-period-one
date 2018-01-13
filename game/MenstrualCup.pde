@@ -1,3 +1,4 @@
+/*@pjs preload="menstrual_cup.png";*/
 class MenstrualCup extends FallingObject{
 
   PImage img;
@@ -12,7 +13,7 @@ class MenstrualCup extends FallingObject{
   void render(){
     if(super.notCaught){
       fill(255);
-      image(img, super.x, super.y, 50, 50);
+      image(img, super.x-25, super.y-25, 50, 50);
     }
   }
 
