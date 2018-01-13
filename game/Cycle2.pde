@@ -28,7 +28,7 @@ class Cycle2 extends Cycle{
   FallingObject[] powerUps(){
     FallingObject[] powerUps = new FallingObject[3];
     for(int i=0; i<3; i++){
-      powerUps[i] = new FallingObject();
+      powerUps[i] = new Condom();
     }
     return powerUps;
   }

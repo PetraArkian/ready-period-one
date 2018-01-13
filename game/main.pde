@@ -7,7 +7,6 @@ Cycle currentCycle;
 /*@pjs preload="Background.png";*/
 
 void setup(){
-  alert("hey");
   img = loadImage("Background.png");
   drawBackground();
   size(1000, 700); //set canvas size
@@ -30,10 +29,11 @@ void draw(){
   }
   if(currentCycle != null){
     if(currentCycle.finished){
+      player.unlockNewCycle(currentCycle);
       cycleObjects = null;
       currentCycle = null;
       updateFallingObjects();
-      //currentCycle = player.currentCycle;
+      //currentCycle = currentCycle.infoCard();
     }else{
       fall(cycleObjects);
       currentCycle.render();
@@ -59,7 +59,7 @@ void drawBackground(){
 }
 
 void updateFallingObjects(){
-  numThings = player.unlocked.length * 3 + 10;
+  numThings = player.unlockedCount * 3 + 10;
   fallingObjects = new FallingObject[numThings];
   int i=0;
   while(i<10){
@@ -67,32 +67,35 @@ void updateFallingObjects(){
     i++;
   }
   for(Cycle cyc : player.unlocked){
-    for(FallingObject o : cyc.powerUps()){
-          //alert("hey");
-      fallingObjects[i] = o;
-      i++;
+    if(cyc != null){
+      for(FallingObject o : cyc.powerUps()){
+        fallingObjects[i] = o;
+        i++;
+      }
     }
   }
 }
 
 void fall(FallingObject[] fallingThings){
   for(FallingObject o : fallingThings){ //for every falling object
-    o.fall(); //fall downwards
-    if(player.isTouching(o) && o.notCaught){ //if it collides with the player
-      o.isCaught(); //then it is caught
-      board.incrementScore(o); // and we increment the score by the amount of points catching this object is worth
-      if(currentCycle != null){
-        currentCycle.addProgress();
+    if(o != null){
+      o.fall(); //fall downwards
+      if(player.isTouching(o) && o.notCaught){ //if it collides with the player
+        o.isCaught(); //then it is caught
+        board.incrementScore(o); // and we increment the score by the amount of points catching this object is worth
+        if(currentCycle != null){
+          currentCycle.addProgress();
+        }
       }
+      if(o.dropped){
+        if(currentCycle != null){
+          currentCycle.removeProgress();
+        }
+        else{
+          board.removeProgress(o);
+        }
+      }
+      o.render(); //draw the object
     }
-    if(o.dropped){
-      if(currentCycle != null){
-        currentCycle.removeProgress();
-      }
-      else{
-        board.removeProgress(o);
-      }
-    }
-    o.render(); //draw the object
   }
 }
