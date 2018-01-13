@@ -33,4 +33,8 @@ class Cycle1 extends Cycle{
     return powerUps;
   }
 
+  Cycle getNext(){
+    return this;
+  }
+
 }

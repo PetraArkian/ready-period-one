@@ -1,8 +1,10 @@
+/*@pjs preload="Challenge.png";*/
 class Cycle0 extends Cycle{
 
   Cycle0(){
     super();
     super.cycleName = "Explore!";
+    img2 = loadImage("Challenge.png");
   }
 
   //SHOULD BE WHATEVER THE PLAYER CHOOSES
@@ -13,14 +15,20 @@ class Cycle0 extends Cycle{
   void render(){
     fill(255);    //fills with white
     background(102, 205, 170);
+    drawChallenge();
     textSize(20);
-    drawBubble(width/4, height/1.5, width/6, "Home", 48);
-    drawBubble(width/3, height/3, width/8, "Cotton Balls", 20);
-    drawBubble(width/2, height/4, width/10, "Birth Control", 15);
-    drawBubble(width/1.5, height/3, width/12, "Condoms", 14);
-    textSize(48);
-    fill(255);
-    text(this.cycleName, width/2 - 60, height/2);
+    drawBubble(width/2.1, height/2, width/3.1, "Challenge", 48);
+    drawBubble(width/2.1, height/8, width/9, "Cotton Balls", 20);
+    drawBubble(width/2.1, height - height/8, width/9, "Condoms", 20);
+    drawBubble(width - width/5, height/4, width/5, "Tampons", 15);
+    drawBubble(width/5.3, height - height/4, width/5, "Pads", 14);
+    drawBubble(width - width/4.7, height - height/4, width/5, "Birth Control", 15);
+    drawBubble(width/5.8, height/3.9, width/5, "Menstrual Cups", 15);
+
+  }
+
+  void drawChallenge(){
+    image(img2, 0, 0, width, height);
   }
 
   void drawBubble(float x, float y, float size, String t, int txSize){

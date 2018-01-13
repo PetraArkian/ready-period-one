@@ -42,9 +42,9 @@ class Cycle{
   }
 
   void render(){
-    fill(0);
+    fill(126,224,219);
     textSize(24);
-    text(this.cycleName + " : " + this.progress, width/2 - 60, 40);
+    text(this.cycleName + " : " + this.progress, width/2 - 80, 70);
   }
 
   FallingObject[] powerUps(){

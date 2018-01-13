@@ -4,10 +4,12 @@ FallingObject[] cycleObjects;
 Player player; //our player object
 Scoreboard board; //a object to keep track of overall score
 Cycle currentCycle;
-/*@pjs preload="cottonball.png";*/
+/*@pjs preload="Background.png";*/
 
 void setup(){
-  background(255); //set background
+  alert("hey");
+  img = loadImage("Background.png");
+  drawBackground();
   size(1000, 700); //set canvas size
   //size(window.innerWidth * .8, window.innerHeight * .8);
   currentCycle = null;
@@ -20,7 +22,8 @@ void setup(){
 }
 
 void draw(){
-  background(245,255,250); //mint cream
+  //background(245,255,250); //mint cream
+  drawBackground();
   player.move(mouseX, mouseY); //move the player to the current mouse position
   if(currentCycle != null && cycleObjects == null){
     cycleObjects = currentCycle.cycleObjects();
@@ -49,6 +52,10 @@ void keyPressed(){
 void mouseClicked(){
   currentCycle = currentCycle.getNext();
   cycleObjects = null;
+}
+
+void drawBackground(){
+  image(img, 0, 0, width, height);
 }
 
 void updateFallingObjects(){
