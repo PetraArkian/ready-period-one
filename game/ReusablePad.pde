@@ -6,13 +6,14 @@ class ReusablePad extends FallingObject{
     super();
     super.speed = random(4,5);
     super.type = "ReusablePad";
-    img = loadImage("reusable-pad.png");
+    //img = loadImage("reusable-pad.png");
   }
 
   void render(){
     if(super.notCaught){
       fill(255);
-      image(img, super.x-15, super.y-15, 30, 30);
+      ellipse(super.x, super.y, 10, 10);
+      //image(img, super.x-15, super.y-15, 30, 30);
     }
   }
 

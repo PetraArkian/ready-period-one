@@ -14,8 +14,7 @@ class Tampon extends FallingObject{
   void render(){
     if(super.notCaught){
       fill(255);
-      ellipse(super.x, super.y, 50, 50);
-      //image(img, super.x-25, super.y-25, 50, 50);
+      image(img, super.x-25, super.y-25, 50, 50);
     }
   }
 

@@ -55,7 +55,7 @@ class Cycle0 extends Cycle{
     }
     //!!!!!!!!!!!!!!!!!!!!!!!!
     if(dist(width/5.3, height - height/4, mouseX, mouseY)<width/10){
-    alert("pads");
+      alert("pads");
       return new Cycle5();//pads //pads cycle currently not opperational
     }
     //!!!!!!!!!!!!!!!!!!!!!!!!!!
