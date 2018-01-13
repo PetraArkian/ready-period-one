@@ -16,11 +16,4 @@ class EndCycle extends Cycle{
   Cycle getNext(){
     return null;
   }
-
-  void render(){
-    fill(0);
-    rect(0, 0, width, height);
-    fill(255);
-    text("GAME OVER", width/2 - 40, height/2);
-  }
 }

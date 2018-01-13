@@ -4,6 +4,7 @@ class Cycle{
   int numThings; //the total number of falling objects in the level
   Cycle next; //the following cycle to go to after this one
   boolean finished; //whether or not the cycle has been completed
+  FallingObject[] powerUps; //an array containing the powerUp objects unlocked by this cycle
 
   int progress;
 
@@ -37,12 +38,21 @@ class Cycle{
   }
 
   Cycle getNext(){
-    return new Cycle1();
+    return this;
   }
 
   void render(){
     fill(0);
+    textSize(24);
     text(this.cycleName + " : " + this.progress, width/2 - 60, 40);
+  }
+
+  FallingObject[] powerUps(){
+    FallingObject[] powerUps = new FallingObject[3];
+    for(int i=0; i<3; i++){
+      powerUps[i] = new CottonBall();
+    }
+    return powerUps;
   }
 
 }

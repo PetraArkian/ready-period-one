@@ -25,7 +25,13 @@ class Cycle2 extends Cycle{
     super.progress -= 10;
   }
 
-  Cycle getNext(){
-    return new EndCycle();
+  FallingObject[] powerUps(){
+    FallingObject[] powerUps = new FallingObject[3];
+    for(int i=0; i<3; i++){
+      powerUps[i] = new FallingObject();
+    }
+    return powerUps;
   }
+
+
 }

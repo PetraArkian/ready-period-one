@@ -4,7 +4,9 @@ class FallingObject{
   boolean notCaught; //whether or not the object is currently visible
   float speed; //the speed at which the object falls down the page
   int pointValue;
+  int pointDecrease;
   boolean dropped;
+  String type;
 
   //constructor, initializes the object at the top of the screen with a starting speed
   FallingObject(){
@@ -12,6 +14,7 @@ class FallingObject{
     speed = random(2,3);
     pointValue = 1;
     dropped = false;
+    type = "default";
   }
 
   //moves the object one frame down the screen and deals with falling off the bottom
