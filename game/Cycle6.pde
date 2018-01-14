@@ -2,9 +2,7 @@ class Cycle6 extends Cycle {
 
   Cycle6(){
     super();
-    alert("within the constructor");
     super.cycleName = "Intrauterine Device";
-    //alert("within the constructor");
   }
 
   FallingObject[] cycleObjects(){ //a method that returns an array with all of the proper number and types of FallingObjects for this cycle
@@ -28,7 +26,4 @@ class Cycle6 extends Cycle {
     super.progress -= 10;
   }
 
-  Cycle getNext(){
-    return new EndCycle();
-  }
 }

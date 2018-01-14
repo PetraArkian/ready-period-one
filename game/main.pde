@@ -19,6 +19,7 @@ void setup(){
   updateFallingObjects();
   board = new Scoreboard();
   currentCycle = player.currentCycle;
+  click();
 }
 
 void draw(){
@@ -51,6 +52,10 @@ void keyPressed(){
 }
 
 void mouseClicked(){
+  click();
+}
+
+void click(){
   currentCycle = currentCycle.getNext();
   cycleObjects = null;
 }
