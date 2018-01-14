@@ -22,10 +22,22 @@ class Cycle5 extends Cycle{
   }
 
   void removeProgress(){
-    super.progress -= 10;
+    super.progress -= 1;
+    if(progress < 0){
+      failed = true;
+    }
+  }
+
+  FallingObject[] powerUps(){
+
+    FallingObject[] powerUps = new FallingObject[3];
+    for(int i=0; i<3; i++){
+      powerUps[i] = new ReusablePad();
+    }
+    return powerUps;
   }
 
   Cycle getNext(){
-    return null;
+    return this;
   }
 }

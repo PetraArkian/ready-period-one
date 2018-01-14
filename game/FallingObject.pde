@@ -18,8 +18,8 @@ class FallingObject{
   }
 
   //moves the object one frame down the screen and deals with falling off the bottom
-  void fall(){
-    y += speed;
+  void fall(int v){
+    y += speed*v;
     dropped = false;
     if(y > height){ //if the object falls off the bottom of the screen, reset it and put it back at the top
       if(this.notCaught){

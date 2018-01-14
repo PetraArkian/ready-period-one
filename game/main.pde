@@ -4,13 +4,15 @@ FallingObject[] cycleObjects;
 Player player; //our player object
 Scoreboard board; //a object to keep track of overall score
 Cycle currentCycle;
+int[] velocities = [1, 1.05, 1.1, 1.2, 1.4, 1.5];
 /*@pjs preload="Background.png";*/
 
 void setup(){
+  alert("hi");
   img = loadImage("Background.png");
   drawBackground();
-  size(1000, 700); //set canvas size
-  //size(window.innerWidth * .8, window.innerHeight * .8);
+  //size(1000, 700); //set canvas size
+  size(window.innerWidth * .7, window.innerHeight * .8);
 
   currentCycle = null;
   numThings = 20;
@@ -19,7 +21,6 @@ void setup(){
   updateFallingObjects();
   board = new Scoreboard();
   currentCycle = player.currentCycle;
-  click();
 }
 
 void draw(){
@@ -30,13 +31,20 @@ void draw(){
     cycleObjects = currentCycle.cycleObjects();
   }
   if(currentCycle != null){
-    if(currentCycle.finished){
-      player.unlockNewCycle(currentCycle);
-      cycleObjects = null;
-      currentCycle = null;
-      updateFallingObjects();
-      //currentCycle = currentCycle.infoCard();
-    }else{
+    if(currentCycle.finished || currentCycle.failed){
+      if(currentCycle.finished){
+        player.unlockNewCycle(currentCycle);
+        currentCycle = currentCycle.getInfo();
+        cycleObjects = null;
+        updateFallingObjects();
+      }else{
+        alert("Ready to return to the game?");
+        cycleObjects = null;
+        currentCycle = null;
+        updateFallingObjects();
+      }
+    }
+    else{
       fall(cycleObjects);
       currentCycle.render();
     }
@@ -52,10 +60,6 @@ void keyPressed(){
 }
 
 void mouseClicked(){
-  click();
-}
-
-void click(){
   currentCycle = currentCycle.getNext();
   cycleObjects = null;
 }
@@ -65,10 +69,10 @@ void drawBackground(){
 }
 
 void updateFallingObjects(){
-  numThings = player.unlockedCount * 3 + 10;
+  numThings = player.unlockedCount * 3 + 5;
   fallingObjects = new FallingObject[numThings];
   int i=0;
-  while(i<10){
+  while(i<5){
     fallingObjects[i] = new CottonBall();
     i++;
   }
@@ -85,7 +89,9 @@ void updateFallingObjects(){
 void fall(FallingObject[] fallingThings){
   for(FallingObject o : fallingThings){ //for every falling object
     if(o != null){
-      o.fall(); //fall downwards
+      if(currentCycle == null) {
+        o.fall(velocities[player.unlockedCount]); //fall downwards
+      } else{o.fall(1)}
       if(player.isTouching(o) && o.notCaught){ //if it collides with the player
         o.isCaught(); //then it is caught
         board.incrementScore(o); // and we increment the score by the amount of points catching this object is worth

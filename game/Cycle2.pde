@@ -22,7 +22,10 @@ class Cycle2 extends Cycle{
   }
 
   void removeProgress(){
-    super.progress -= 10;
+    super.progress -= 5;
+    if(progress < 0){
+      failed = true;
+    }
   }
 
   FallingObject[] powerUps(){

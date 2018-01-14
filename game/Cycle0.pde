@@ -5,12 +5,9 @@ class Cycle0 extends Cycle{
     super();
     super.cycleName = "Explore!";
     img2 = loadImage("Challenge.png");
+    super.isSpecial = true;
   }
 
-  //SHOULD BE WHATEVER THE PLAYER CHOOSES
-  /*Cycle getNext(){
-    return new Cycle2();
-  }*/
 
   void render(){
     fill(255);    //fills with white

@@ -1,10 +1,13 @@
+/*@pjs preload="cottonballInfo.png";*/
 class Cycle{
   int cycleNum; //the "level number"
   String cycleName; //the name of the cycle
   int numThings; //the total number of falling objects in the level
   Cycle next; //the following cycle to go to after this one
   boolean finished; //whether or not the cycle has been completed
+  boolean failed; //whether or not the cycle has been lost
   FallingObject[] powerUps; //an array containing the powerUp objects unlocked by this cycle
+  boolean isSpecial; //is an infograph or main screen
 
   int progress;
 
@@ -14,7 +17,9 @@ class Cycle{
     this.numThings = 10;
     this.next = null;
     this.finished = false;
+    this.failed = false;
     this.progress = 0;
+    this.isSpecial = false;
   }
 
   FallingObject[] cycleObjects(){ //a method that returns an array with all of the proper number and types of FallingObjects for this cycle
@@ -34,11 +39,19 @@ class Cycle{
   }
 
   void removeProgress(){
-    //do nothing
+    progress--;
+    if(progress < 0){
+      failed = true;
+    }
   }
 
   Cycle getNext(){
     return this;
+  }
+
+  Cycle getInfo(){
+    infoImage = loadImage("cottonballInfo.png");
+    return new InfoCard("cotton balls", infoImage);
   }
 
   void render(){

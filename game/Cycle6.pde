@@ -24,6 +24,18 @@ class Cycle6 extends Cycle {
 
   void removeProgress(){
     super.progress -= 10;
+    if(progress < 0){
+      failed = true;
+    }
+  }
+
+  FallingObject[] powerUps(){
+
+    FallingObject[] powerUps = new FallingObject[3];
+    for(int i=0; i<3; i++){
+      powerUps[i] = new IntrauterineDevice();
+    }
+    return powerUps;
   }
 
 }
