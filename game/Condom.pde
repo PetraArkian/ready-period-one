@@ -12,8 +12,7 @@ class Condom extends FallingObject{
   void render(){
     if(super.notCaught){
       fill(255);
-      ellipse(super.x, super.y, 50, 50);
-      image(img, super.x-15, super.y-15, 30, 30);
+      image(img, super.x-15, super.y-15, 50, 50);
     }
   }
 

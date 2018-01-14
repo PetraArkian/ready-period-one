@@ -26,6 +26,6 @@ class Cycle5 extends Cycle{
   }
 
   Cycle getNext(){
-    return new EndCycle();
+    return null;
   }
 }
