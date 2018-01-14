@@ -16,5 +16,4 @@ class MenstrualCup extends FallingObject{
       image(img, super.x-25, super.y-25, 50, 50);
     }
   }
-
 }

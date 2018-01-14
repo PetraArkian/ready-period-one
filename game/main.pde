@@ -11,6 +11,7 @@ void setup(){
   drawBackground();
   size(1000, 700); //set canvas size
   //size(window.innerWidth * .8, window.innerHeight * .8);
+
   currentCycle = null;
   numThings = 20;
   //initialize variables
