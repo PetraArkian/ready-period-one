@@ -19,6 +19,7 @@ class Player{
     //unlocked[2] = new Cycle2();
     //unlocked[3] = new Cycle3();
     //currentCycle = new Cycle1();
+    //currentCycle = new Cycle6();
     currentCycle = new Cycle();
     cute = loadImage("Cuterus.png");
   }
@@ -52,6 +53,4 @@ class Player{
   void centralize() {
     centralized = true;
   }
-
-
 }
