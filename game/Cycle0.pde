@@ -26,14 +26,16 @@ class Cycle0 extends Cycle{
     drawBubble(width - width/3.2, height - height/4, width/5, "Birth Control", 15);
     drawBubble(width - width/8, height/2, width/5, "Menstrual Cups", 15);
     drawBubble(width/5, height/3, width/4, "IUD", 15);
+    drawBubble(width/8.9, height/1.19, width/6.9, "Donate", 15);
+    drawBubble(width/5.5, height/1.4, width/8, "D4G", 15);
     */
-
   }
 
   void drawChallenge(){
     image(img2, 0, 0, width, height);
   }
 
+  //page location X, page location Y, bubble size, text, text size
   void drawBubble(float x, float y, float size, String t, int txSize){
     ellipseMode(CENTER);
     textSize(txSize);
@@ -67,6 +69,12 @@ class Cycle0 extends Cycle{
     }
     if(dist(width/5, height/3, mouseX, mouseY)<width/8){
       return new Cycle6();//IUD
+    }
+    if(dist(width/8.9, height/1.19, mouseX, mouseY)<width/14.8) {
+      link("https://donate.daysforgirls.org/checkout/donation?eid=136291", "Donate");
+    }
+    if(dist(width/5.5, height/1.4, mouseX, mouseY)<width/16){
+      link("https://www.daysforgirls.org/dfg-our-approach", "About");
     }
     else{
       return new Cycle0();
