@@ -13,7 +13,7 @@ class Cycle{
 
   Cycle(){
     this.cycleNum = 1;
-    this.cycleName = "cotton balls";
+    this.cycleName = "Cotton Balls";
     this.numThings = 10;
     this.next = null;
     this.finished = false;

@@ -38,7 +38,9 @@ void draw(){
         cycleObjects = null;
         updateFallingObjects();
       }else{
-        alert("Ready to return to the game?");
+        if(currentCycle.isSpecial){
+          alert("ready to return to game?");
+        }
         cycleObjects = null;
         currentCycle = null;
         updateFallingObjects();

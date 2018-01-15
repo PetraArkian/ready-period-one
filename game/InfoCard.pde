@@ -5,6 +5,7 @@ class InfoCard extends Cycle{
   InfoCard(){
     super();
     super.isSpecial = true;
+    super.cycleName = "Info Card";
   }
 
   InfoCard(String t, PImage i){
@@ -15,6 +16,10 @@ class InfoCard extends Cycle{
   }
 
   Cycle getNext(){
+    return new Cycle0();
+  }
+
+  Cycle exit(){
     return new Cycle0();
   }
 

@@ -5,7 +5,6 @@ class Cycle0 extends Cycle{
     super();
     super.cycleName = "Explore!";
     img2 = loadImage("Challenge.png");
-    super.isSpecial = true;
   }
 
 

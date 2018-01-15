@@ -40,8 +40,16 @@ class Player{
   }
 
   void unlockNewCycle(Cycle cyc){
-    unlocked[unlockedCount] = cyc;
-    unlockedCount++;
+    boolean alreadyUnlocked = false;
+    for(Cycle c : unlocked){
+      if(c != null && cyc.cycleName.equals(c.cycleName)){
+        alreadyUnlocked = true;
+      }
+    }
+    if(!alreadyUnlocked){
+      unlocked[unlockedCount] = cyc;
+      unlockedCount++;
+    }
   }
 
   //draws the player on the screen (currently just a red dot)
