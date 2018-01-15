@@ -14,8 +14,6 @@ class Player{
     this.y = y;
     unlocked = new Cycle[5];
     unlockedCount = 0;
-    unlocked[0] = new Cycle();
-    unlockedCount++;
     //unlocked[2] = new Cycle2();
     //unlocked[3] = new Cycle3();
     //currentCycle = new Cycle1();
