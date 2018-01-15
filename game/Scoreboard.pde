@@ -39,7 +39,11 @@ class Scoreboard{
     fill(255, 0, 0);
     text(this.score, width-100, 50);
     fill(0);
-    text("Birth Control: " + birthControlCount + "/28", width - 200, 90);
+    text("Birth Control: " + birthControlCount + "/28", width - 250, 90);
+    textSize(36);
+    text("Combo Mode!", width/2 - 200, height/12);
+    textSize(24);
+    text("press SPACE BAR to view and unlock new cycles", width/2 - 350, height/8);
 
     if(this.score < 0){
       rect(0,0,width,height);

@@ -1,3 +1,4 @@
+/*@pjs preload="menstrualcups.png";*/
 class Cycle4 extends Cycle{
 
   Cycle4(){
@@ -26,6 +27,11 @@ class Cycle4 extends Cycle{
     if(progress < 0){
       failed = true;
     }
+  }
+
+  Cycle getInfo(){
+    infoImage = loadImage("menstrualcups.png");
+    return new InfoCard("tampons", infoImage);
   }
 
   FallingObject[] powerUps(){

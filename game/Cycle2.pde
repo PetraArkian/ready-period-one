@@ -1,3 +1,4 @@
+/*@pjs preload="condomInfo.png";*/
 class Cycle2 extends Cycle{
 
   Cycle2(){
@@ -26,6 +27,11 @@ class Cycle2 extends Cycle{
     if(progress < 0){
       failed = true;
     }
+  }
+
+  Cycle getInfo(){
+    infoImage = loadImage("condomInfo.png");
+    return new InfoCard("condoms", infoImage);
   }
 
   FallingObject[] powerUps(){

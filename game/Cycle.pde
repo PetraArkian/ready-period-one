@@ -8,6 +8,7 @@ class Cycle{
   boolean failed; //whether or not the cycle has been lost
   FallingObject[] powerUps; //an array containing the powerUp objects unlocked by this cycle
   boolean isSpecial; //is an infograph or main screen
+  boolean isMenu;
 
   int progress;
 
@@ -33,7 +34,7 @@ class Cycle{
   //move one step forward in whatever progress happens for this cycle (will be called when an object is caught)
   void addProgress(){
     progress++;
-    if(progress >= 50){
+    if(progress >= 20){
       finished = true;
     }
   }

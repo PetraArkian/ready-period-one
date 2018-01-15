@@ -5,6 +5,7 @@ class Cycle0 extends Cycle{
     super();
     super.cycleName = "Explore!";
     img2 = loadImage("Challenge.png");
+    super.isMenu = true;
   }
 
 
@@ -40,6 +41,7 @@ class Cycle0 extends Cycle{
     fill(0);
     text(t, x - size/2 + 10, y);
   }
+
 
   void getNext(){
     if(dist(width/1.57, height/2.5, mouseX, mouseY)<width/8){

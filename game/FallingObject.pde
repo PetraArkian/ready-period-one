@@ -54,8 +54,8 @@ class FallingObject{
 
   //initializes the object at the top of the screen
   void init(){
-    this.y = random(height) * -1; //sets a random "delay" before the object enters the screen
-    this.x = random(width); //set x to a random float in the range of the width of the canvas
+    this.y = random(50,height*.9) * -1; //sets a random "delay" before the object enters the screen
+    this.x = random(50,width*.9); //set x to a random float in the range of the width of the canvas
     this.notCaught = true;
   }
 

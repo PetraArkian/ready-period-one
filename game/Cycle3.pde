@@ -1,3 +1,4 @@
+/*@pjs preload="tamponInfo.png";*/
 class Cycle3 extends Cycle{
 
   Cycle3(){
@@ -19,6 +20,11 @@ class Cycle3 extends Cycle{
      if(super.progress >= 50){
         finished = true;
      }
+  }
+
+  Cycle getInfo(){
+    infoImage = loadImage("tamponInfo.png");
+    return new InfoCard("tampons", infoImage);
   }
 
   FallingObject[] powerUps(){

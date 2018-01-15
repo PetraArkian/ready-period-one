@@ -8,7 +8,7 @@ int[] velocities = [1, 1.05, 1.1, 1.2, 1.4, 1.5];
 /*@pjs preload="Background.png";*/
 
 void setup(){
-  alert("hi");
+  //alert("hi");
   img = loadImage("Background.png");
   drawBackground();
   //size(1000, 700); //set canvas size
@@ -21,6 +21,7 @@ void setup(){
   updateFallingObjects();
   board = new Scoreboard();
   currentCycle = player.currentCycle;
+  menuCycle = new Cycle0();
 }
 
 void draw(){
@@ -40,10 +41,20 @@ void draw(){
       }else{
         if(currentCycle.isSpecial){
           alert("ready to return to game?");
+          cycleObjects = null;
+          currentCycle = null;
+          updateFallingObjects();
+        }else if(currentCycle.isMenu){
+          alert("choose a new cycle to unlock or play combo mode to see what you've unlocked so far!")
+          currentCycle = new Cycle0();
+          cycleObjects = null;
+          updateFallingObjects();
         }
-        cycleObjects = null;
-        currentCycle = null;
-        updateFallingObjects();
+        else{
+          cycleObjects = null;
+          currentCycle = null;
+          updateFallingObjects();
+        }
       }
     }
     else{

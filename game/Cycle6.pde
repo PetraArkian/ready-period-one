@@ -1,3 +1,4 @@
+/*@pjs preload="iudInfo.png";*/
 class Cycle6 extends Cycle {
 
   Cycle6(){
@@ -27,6 +28,11 @@ class Cycle6 extends Cycle {
     if(progress < 0){
       failed = true;
     }
+  }
+
+  Cycle getInfo(){
+    infoImage = loadImage("iudInfo.png");
+    return new InfoCard("intrauterine device", infoImage);
   }
 
 

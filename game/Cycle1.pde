@@ -1,3 +1,4 @@
+/*@pjs preload="birthcontrolInfo.png";*/
 class Cycle1 extends Cycle{
 
   Cycle1(){
@@ -23,6 +24,11 @@ class Cycle1 extends Cycle{
 
   void removeProgress(){
     super.progress = 0;
+  }
+
+  Cycle getInfo(){
+    infoImage = loadImage("birthcontrolInfo.png");
+    return new InfoCard("birth control", infoImage);
   }
 
   FallingObject[] powerUps(){
