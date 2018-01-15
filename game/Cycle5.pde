@@ -1,3 +1,4 @@
+/*@pjs preload="padInfo.png";*/
 class Cycle5 extends Cycle{
 
   Cycle5(){
@@ -26,6 +27,11 @@ class Cycle5 extends Cycle{
     if(progress < 0){
       failed = true;
     }
+  }
+
+  Cycle getInfo(){
+    infoImage = loadImage("padInfo.png");
+    return new InfoCard("reusable pad", infoImage);
   }
 
   FallingObject[] powerUps(){

@@ -29,6 +29,7 @@ class Cycle6 extends Cycle {
     }
   }
 
+
   FallingObject[] powerUps(){
 
     FallingObject[] powerUps = new FallingObject[3];
