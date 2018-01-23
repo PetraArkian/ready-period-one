@@ -12,7 +12,8 @@ void setup(){
   img = loadImage("Background.png");
   drawBackground();
   //size(1000, 700); //set canvas size
-  size(window.innerWidth * .7, window.innerHeight * .8);
+  // move this to draw() to dynamically draw the canvas to adjust window size changes
+  //size(window.innerWidth * .7, window.innerHeight * .8);
 
   currentCycle = null;
   numThings = 20;
@@ -26,6 +27,7 @@ void setup(){
 
 void draw(){
   //background(245,255,250); //mint cream
+  size(window.innerWidth * .7, window.innerHeight * .8);  
   drawBackground();
   player.move(mouseX, mouseY); //move the player to the current mouse position
   if(currentCycle != null && cycleObjects == null){
