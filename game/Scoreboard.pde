@@ -43,7 +43,7 @@ class Scoreboard{
     textSize(36);
     text("Combo Mode!", width/2 - 200, height/12);
     textSize(24);
-    text("press SPACE BAR to view and unlock new cycles", width/2 - 350, height/8);
+    text("press SPACE BAR to view and unlock new cycles", width/2 - 300, height/8);
 
     if(this.score < 0){
       rect(0,0,width,height);
