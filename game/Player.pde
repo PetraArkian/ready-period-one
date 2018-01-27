@@ -23,6 +23,7 @@ class Player{
     cycleStack.add(new DefaultCycle());
     cycleStack.add(0, new Cycle0());
     unlocked = new HashMap<String, Cycle>();
+    unlockedCount = 0;
     /*Cycle testCycle = new Cycle1();
     unlocked.put(testCycle.cycleName, testCycle);*/
     cute = loadImage("Cuterus.png");
@@ -44,8 +45,10 @@ class Player{
     }
 
   void unlockNewCycle(Cycle cyc){
-    unlocked.put(cyc.cycleName, cyc);
-    unlockedCount++;
+    if(!unlocked.containsKey(cyc.cycleName)){
+      unlocked.put(cyc.cycleName, cyc);
+      unlockedCount++;
+    }
     /*boolean alreadyUnlocked = false;
     for(Cycle c : unlocked){
       if(c != null && cyc.cycleName.equals(c.cycleName)){

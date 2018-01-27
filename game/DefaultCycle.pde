@@ -7,7 +7,7 @@ class DefaultCycle extends Cycle{
 
   FallingObject[] cycleObjects(Player p){ //a method that returns an array with all of the proper number and types of FallingObjects for this cycle
    if(cycleObjs == null){
-      numThings = p.unlocked.size() * 3 + 10;
+      numThings = p.unlockedCount * 3 + 10;
       cycleObjs = new FallingObject[numThings];
       int i=0;
       while(i<10){
