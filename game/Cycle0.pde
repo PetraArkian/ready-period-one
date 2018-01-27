@@ -14,6 +14,8 @@ class Cycle0 extends Cycle{
     background(102, 205, 170);
     drawChallenge();
     textSize(20);
+    super.finished = false;
+    super.failed = false;
     /*
     drawBubble(width/1.57, height/2.5, width/4, "Challenge", 48);
     drawBubble(width/2.2, height/3.8, width/9, "Cotton Balls", 20);

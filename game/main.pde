@@ -43,7 +43,7 @@ void draw(){
       player.cycleStack.add(0, player.cycleStack.remove(0).getInfo());
     }else if(currentCycle.failed){
       cycleObjects = null;
-      player.cycleStack.remove(0);
+      //player.cycleStack.remove(0);
       player.cycleStack.add(0, new Cycle0())
     }
     else{
