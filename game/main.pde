@@ -41,7 +41,12 @@ void draw(){
       cycleObjects = null;
       player.unlockNewCycle(currentCycle);
       player.cycleStack.add(0, player.cycleStack.remove(0).getInfo());
-    }else{
+    }else if(currentCycle.failed){
+      cycleObjects = null;
+      player.cycleStack.remove(0);
+      player.cycleStack.add(0, new Cycle0())
+    }
+    else{
       fall(cycleObjects);
       if(currentCycle.cycleName != "default"){
         currentCycle.render();
