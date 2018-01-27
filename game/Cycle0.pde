@@ -1,10 +1,10 @@
-/*@pjs preload="Challenge.png";*/
+/*@pjs preload="challenge.png";*/
 class Cycle0 extends Cycle{
 
   Cycle0(){
     super();
     super.cycleName = "Explore!";
-    img2 = loadImage("Challenge.png");
+    img2 = loadImage("challenge.png");
     super.isMenu = true;
   }
 
@@ -45,7 +45,7 @@ class Cycle0 extends Cycle{
 
   void getNext(){
     if(dist(width/1.57, height/2.5, mouseX, mouseY)<width/8){
-      return null; //challenge
+      return new DefaultCycle(); //challenge
     }
     if(dist(width/2.2, height/3.8, mouseX, mouseY)<width/18){
       return new Cycle(); //cottonballs
@@ -70,12 +70,14 @@ class Cycle0 extends Cycle{
     }
     if(dist(width/8.9, height/1.19, mouseX, mouseY)<width/14.8) {
       link("https://donate.daysforgirls.org/checkout/donation?eid=136291", "Donate");
+      return this;
     }
     if(dist(width/5.5, height/1.4, mouseX, mouseY)<width/16){
       link("https://www.daysforgirls.org/dfg-our-approach", "About");
+      return this;
     }
     else{
-      return new Cycle0();
+      return this;
     }
   }
 }

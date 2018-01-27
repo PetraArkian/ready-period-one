@@ -9,6 +9,7 @@ class Cycle{
   FallingObject[] powerUps; //an array containing the powerUp objects unlocked by this cycle
   boolean isSpecial; //is an infograph or main screen
   boolean isMenu;
+  FallingObject[] cycleObjs;
 
   int progress;
 
@@ -23,10 +24,14 @@ class Cycle{
     this.isSpecial = false;
   }
 
-  FallingObject[] cycleObjects(){ //a method that returns an array with all of the proper number and types of FallingObjects for this cycle
-    FallingObject[] cycleObjs = new FallingObject[numThings];
-    for(int i=0; i<numThings; i++){
-      cycleObjs[i] = new CottonBall();
+
+
+  FallingObject[] cycleObjects(Player p){ //a method that returns an array with all of the proper number and types of FallingObjects for this cycle
+    if(cycleObjs == null){
+      cycleObjs = new FallingObject[numThings];
+      for(int i=0; i<numThings; i++){
+        cycleObjs[i] = new CottonBall();
+      }
     }
     return cycleObjs;
   }

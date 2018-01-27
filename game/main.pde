@@ -1,5 +1,5 @@
 int numThings; //the max number of falling objects we want at once
-FallingObject[] fallingObjects; //array of all of the objects that will be falling
+//FallingObject[] fallingObjects; //array of all of the objects that will be falling
 FallingObject[] cycleObjects;
 Player player; //our player object
 Scoreboard board; //a object to keep track of overall score
@@ -13,107 +13,70 @@ void setup(){
   drawBackground();
   //size(1000, 700); //set canvas size
   size(window.innerWidth * .7, window.innerHeight * .8);
-
   currentCycle = null;
   numThings = 20;
   //initialize variables
   player = new Player(mouseX, mouseY); //creates a player at the bottom of the screen with
-  updateFallingObjects();
+  //player.cycleStack.add(new DefaultCycle());
+  //player.cycleStack.add(0, new Cycle0());
   board = new Scoreboard();
-  currentCycle = player.currentCycle;
+  //updateFallingObjects();
+  //currentCycle = player.currentCycle;
   menuCycle = new Cycle0();
 }
 
 void draw(){
   //background(245,255,250); //mint cream
   drawBackground();
+  currentCycle = player.cycleStack.get(0);
+  cycleObjects = currentCycle.cycleObjects(player);
   player.move(mouseX, mouseY); //move the player to the current mouse position
-  if(currentCycle != null && cycleObjects == null){
-    cycleObjects = currentCycle.cycleObjects();
-  }
-  if(currentCycle != null){
-    if(currentCycle.finished || currentCycle.failed){
-      if(currentCycle.finished){
-        player.unlockNewCycle(currentCycle);
-        currentCycle = currentCycle.getInfo();
-        cycleObjects = null;
-        updateFallingObjects();
+  //if(currentCycle != null){
+    if(currentCycle.finished){
+      cycleObjects = null;
+      player.unlockNewCycle(currentCycle);
+      player.cycleStack.add(0, player.cycleStack.remove(0).getInfo());
+    }else{
+      fall(cycleObjects);
+      if(currentCycle.cycleName != "default"){
+        currentCycle.render();
       }else{
-        if(currentCycle.isSpecial){
-          alert("ready to return to game?");
-          cycleObjects = null;
-          currentCycle = null;
-          updateFallingObjects();
-        }else if(currentCycle.isMenu){
-          alert("choose a new cycle to unlock or play combo mode to see what you've unlocked so far!")
-          currentCycle = new Cycle0();
-          cycleObjects = null;
-          updateFallingObjects();
-        }
-        else{
-          cycleObjects = null;
-          currentCycle = null;
-          updateFallingObjects();
-        }
+        board.render();
       }
     }
-    else{
-      fall(cycleObjects);
-      currentCycle.render();
-    }
-  }else{
-    fall(fallingObjects);
-    board.render(); //draw the scoreboard
-  }
   player.render(); //draw the player
 }
 
 void keyPressed(){
-  currentCycle = new Cycle0();
+  player.cycleStack.add(0, new Cycle0())
 }
 
 void mouseClicked(){
-  currentCycle = currentCycle.getNext();
-  cycleObjects = null;
+  player.cycleStack.add(0, currentCycle.getNext());
+  /*currentCycle = currentCycle.getNext();
+  cycleObjects = null;*/
 }
 
 void drawBackground(){
   image(img, 0, 0, width, height);
 }
 
-void updateFallingObjects(){
-  numThings = player.unlockedCount * 3 + 5;
-  fallingObjects = new FallingObject[numThings];
-  int i=0;
-  while(i<5){
-    fallingObjects[i] = new CottonBall();
-    i++;
-  }
-  for(Cycle cyc : player.unlocked){
-    if(cyc != null){
-      for(FallingObject o : cyc.powerUps()){
-        fallingObjects[i] = o;
-        i++;
-      }
-    }
-  }
-}
 
 void fall(FallingObject[] fallingThings){
   for(FallingObject o : fallingThings){ //for every falling object
     if(o != null){
-      if(currentCycle == null) {
+      if(currentCycle.cycleName.equals("default")) {
         o.fall(velocities[player.unlockedCount]); //fall downwards
       } else{o.fall(1)}
       if(player.isTouching(o) && o.notCaught){ //if it collides with the player
         o.isCaught(); //then it is caught
         board.incrementScore(o); // and we increment the score by the amount of points catching this object is worth
-        if(currentCycle != null){
+        if(!currentCycle.cycleName.equals("default")){
           currentCycle.addProgress();
         }
       }
       if(o.dropped){
-        if(currentCycle != null){
+        if(!currentCycle.cycleName.equals("default")){
           currentCycle.removeProgress();
         }
         else{

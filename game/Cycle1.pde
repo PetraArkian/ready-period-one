@@ -6,10 +6,12 @@ class Cycle1 extends Cycle{
     super.cycleName = "Birth Control";
   }
 
-  FallingObject[] cycleObjects(){ //a method that returns an array with all of the proper number and types of FallingObjects for this cycle
-    FallingObject[] cycleObjs = new FallingObject[numThings];
-    for(int i=0; i<numThings; i++){
-      cycleObjs[i] = new BirthControlPill();
+  FallingObject[] cycleObjects(Player p){ //a method that returns an array with all of the proper number and types of FallingObjects for this cycle
+    if(cycleObjs == null){
+      cycleObjs = new FallingObject[numThings];
+      for(int i=0; i<numThings; i++){
+        cycleObjs[i] = new BirthControlPill();
+      }
     }
     return cycleObjs;
   }
