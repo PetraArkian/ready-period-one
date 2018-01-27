@@ -45,6 +45,7 @@ class Player{
 
   void unlockNewCycle(Cycle cyc){
     unlocked.put(cyc.cycleName, cyc);
+    unlockedCount++;
     /*boolean alreadyUnlocked = false;
     for(Cycle c : unlocked){
       if(c != null && cyc.cycleName.equals(c.cycleName)){
