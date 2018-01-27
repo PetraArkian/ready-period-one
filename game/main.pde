@@ -29,7 +29,8 @@ void setup(){
 
 void draw(){
   //background(245,255,250); //mint cream
-  size(window.innerWidth * .7, window.innerHeight * .8);
+  if(width != window.innerWidth){
+    size(window.innerWidth * .7, window.innerHeight * .8);
   drawBackground();
   currentCycle = player.cycleStack.get(0);
   cycleObjects = currentCycle.cycleObjects(player);
