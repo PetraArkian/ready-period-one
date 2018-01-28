@@ -4,7 +4,7 @@ FallingObject[] cycleObjects;
 Player player; //our player object
 Scoreboard board; //a object to keep track of overall score
 Cycle currentCycle;
-int[] velocities = [1, 1.05, 1.1, 1.2, 1.4, 1.5];
+int[] velocities = [1, 1.05, 1.1, 1.2, 1.4, 1.5, 1.5, 1.5, 1.5];
 /*@pjs preload="Background.png";*/
 
 void setup(){
