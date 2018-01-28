@@ -24,6 +24,7 @@ class InfoCard extends Cycle{
   }
 
   void render(){
+    super.failed = false;
     image(cottonimage, 0, 0, width, height);
   }
 }
