@@ -1,4 +1,4 @@
-/*@pjs preload="menstrualcups.png";*/
+/*@pjs preload="menstrualcupInfo.png";*/
 class Cycle4 extends Cycle{
 
   Cycle4(){
@@ -32,7 +32,7 @@ class Cycle4 extends Cycle{
   }
 
   Cycle getInfo(){
-    infoImage = loadImage("menstrualcups.png");
+    infoImage = loadImage("menstrualcupInfo.png");
     return new InfoCard("tampons", infoImage);
   }
 
