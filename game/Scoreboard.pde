@@ -2,11 +2,13 @@
 class Scoreboard{
   int score; //the main score
   int birthControlCount;
+  Player p;
 
   //constructor, starts score at zero
-  Scoreboard(){
+  Scoreboard(Player p){
     this.score = 0;
     this.birthControlCount = 0;
+    this.p = p;
   }
 
   //incrementScore, increases the score by @param amount
@@ -39,7 +41,9 @@ class Scoreboard{
     fill(255, 0, 0);
     text(this.score, width-100, 50);
     fill(0);
-    text("Birth Control: " + birthControlCount + "/28", width - 250, height/6);
+    if(this.p.unlocked.containsKey("Birth Control")){
+      text("Birth Control: " + birthControlCount + "/28", width - 250, height/6);
+    }
     textSize(36);
     text("Combo Mode!", width/2 - 200, height/12);
     textSize(24);

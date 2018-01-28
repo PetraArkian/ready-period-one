@@ -21,7 +21,7 @@ void setup(){
   player = new Player(mouseX, mouseY); //creates a player at the bottom of the screen with
   //player.cycleStack.add(new DefaultCycle());
   //player.cycleStack.add(0, new Cycle0());
-  board = new Scoreboard();
+  board = new Scoreboard(player);
   //updateFallingObjects();
   //currentCycle = player.currentCycle;
   menuCycle = new Cycle0();

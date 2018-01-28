@@ -21,7 +21,7 @@ class Player{
     this.y = y;
     cycleStack = new ArrayList<Cycle>();
     cycleStack.add(new DefaultCycle());
-    cycleStack.add(0, new Cycle0());
+    cycleStack.add(0, new Cycle());
     unlocked = new HashMap<String, Cycle>();
     unlockedCount = 0;
     /*Cycle testCycle = new Cycle1();
