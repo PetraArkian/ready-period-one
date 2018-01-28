@@ -24,8 +24,6 @@ class Cycle{
     this.isSpecial = false;
   }
 
-
-
   FallingObject[] cycleObjects(Player p){ //a method that returns an array with all of the proper number and types of FallingObjects for this cycle
     if(cycleObjs == null){
       cycleObjs = new FallingObject[numThings];

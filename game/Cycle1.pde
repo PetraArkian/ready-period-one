@@ -44,5 +44,4 @@ class Cycle1 extends Cycle{
   Cycle getNext(){
     return this;
   }
-
 }
