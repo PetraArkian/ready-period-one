@@ -37,8 +37,12 @@ class FallingObject{
   //draws the object (will be overridden by subclasses)
   void render(){
     if (this.notCaught){
-      fill(255);
-      ellipse(x, y, 30, 30);
+      fill(255,0,0);
+      stroke(255,0,0);
+      for(i= 20; i > 0; i --){
+        ellipse(x, y+i, i, i);
+      }
+      stroke(0);
     }
   }
 

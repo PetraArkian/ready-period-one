@@ -28,7 +28,7 @@ class Cycle{
     if(cycleObjs == null){
       cycleObjs = new FallingObject[numThings];
       for(int i=0; i<numThings; i++){
-        cycleObjs[i] = new CottonBall();
+        cycleObjs[i] = new FallingObject();
       }
     }
     return cycleObjs;
